@@ -1,4 +1,6 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const vendors = [
   'react',
@@ -8,9 +10,9 @@ const vendors = [
 
 module.exports = {
   output: {
-    path: 'dist',
-    filename: '[name].[chunkhash].js',
-    library: '[name]_[chunkhash]',
+    path:path.join(__dirname, 'dist'),
+    filename: 'require.dll.js',
+    library: 'require',
   },
   entry: {
     vendor: vendors,
@@ -18,8 +20,9 @@ module.exports = {
   plugins: [
     new webpack.DllPlugin({
       path: 'manifest.json',
-      name: '[name]_[chunkhash]',
+      name: 'require',
       context: __dirname,
     }),
+    new CleanPlugin('dist')
   ],
 };

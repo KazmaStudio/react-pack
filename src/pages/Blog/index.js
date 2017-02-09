@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => (
-  <div> Blog </div>
+  <div> Blog2 </div>
 );

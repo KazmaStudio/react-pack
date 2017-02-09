@@ -3,8 +3,8 @@ import Header from 'components/Header';
 import List from 'components/List/List';
 
 const twoColListItems = [
-  { title: 'first' },
-  { title: 'Two' },
+  { title: 'first1' },
+  { title: 'Two1å' },
   { title: 'Three' },
   { title: 'Four' }
 ];

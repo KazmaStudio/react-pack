@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, browserHistory } from 'react-router/';
+import { Router, hashHistory } from 'react-router/';
 import App from 'containers/App';
 
 function errorLoading(err) {
@@ -40,4 +40,4 @@ const routes = {
   ]
 };
 
-export default () => (<Router history={browserHistory} routes={routes} />);
+export default () => (<Router history={hashHistory} routes={routes} />);

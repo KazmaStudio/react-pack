@@ -29,7 +29,7 @@ const config = {
   output: {
     path: staticsPath,
     filename: '[hash:12].js',
-    publicPath: '/',
+    publicPath: '',
     chunkFilename: '[chunkhash:12].js'
   },
   plugins: [

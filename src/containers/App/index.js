@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './index.less';
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 
 let pageTransitionName = 'pageSwap';
 
-browserHistory.listen(function(ev) {
-  if(browserHistory.isPop){
+hashHistory.listen(function(ev) {
+  if(hashHistory.isPop){
     pageTransitionName = 'reversePageSwap'
   }else{
     pageTransitionName = 'pageSwap';

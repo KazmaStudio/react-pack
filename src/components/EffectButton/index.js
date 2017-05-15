@@ -1,11 +1,8 @@
 import React, { Component }  from 'react';
+import ReactDOM from 'react-dom'
 import './index.less';
 
 var darkColor = function(rgb, number) {
-  console.log(rgb);
-  if (rgb === '') {
-    rgb = 'rgba(0,0,0,0)'
-  }
 
   var bgR = rgb.split('(')[1].split(',')[0];
   var bgG = rgb.split('(')[1].split(',')[1];
@@ -73,21 +70,27 @@ class EffectButton extends Component {
 
   constructor(props) {
     super(props);
+    this.props = {
+        t:'q22'
+    }
   }
 
   touchStart(that, event){
-    event.target.style.backgroundColor = darkColor(event.target.style.backgroundColor, 50)
+     let bgColor = window.getComputedStyle(that.refs.pickMe).backgroundColor;
+     event.target.style.backgroundColor = darkColor(bgColor, 50);
   }
 
   touchEnd(that, event){
-    event.target.style.backgroundColor = lightColor(event.target.style.backgroundColor, 50)
+      let bgColor = window.getComputedStyle(that.refs.pickMe).backgroundColor;
+      event.target.style.backgroundColor = lightColor(bgColor, 50)
   }
 
   render() {
     return (
       <button
+      ref='pickMe'
       style={this.props.style}
-      className = 'EffectButton'
+      className = {'EffectButton ' + this.props.className}
       onClick={this.props.onClick}
       onTouchStart = {this.touchStart.bind(event,this)}
       onTouchEnd = {this.touchEnd.bind(event,this)}>

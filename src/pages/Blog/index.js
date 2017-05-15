@@ -1,16 +1,18 @@
 import React, { Component }  from 'react';
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 
 class Blog extends Component {
 
   push(path, event) {
-    browserHistory.isPop = false;
-    browserHistory.push('/'+path);
+    hashHistory.isPop = false;
+    hashHistory.push('/'+path);
   }
 
   pop() {
-    browserHistory.isPop = true;
-    browserHistory.goBack();
+      hashHistory.isPop = true;
+      console.log(hashHistory.goBack);
+      hashHistory.goBack();
+      //window.history.go(-1);
   }
 
   render() {

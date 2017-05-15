@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
+  "description": "react + webpack seed",
+  "repository": "https://github.com/KazmaStudio/react-pack.git",
   "scripts": {
     "start": "webpack --config webpack.dll.config.js && webpack-dev-server --hot --inline --open",
     "dll": "webpack --config webpack.dll.config.js",
-    "build": "webpack --progress --profile --colors --display-modules --config webpack.dll.config.js && webpack --progress --profile --colors --display-modules && node app.js"
+    "build": "webpack --progress --profile --colors --display-modules --config webpack.dll.config.js && webpack --progress --profile --colors --display-modules",
+    "release": "webpack --progress --profile --colors --display-modules --config webpack.dll.config.js && webpack --progress --profile --colors --display-modules --config webpack.config.release.js"
   },
   "author": "CJ",
   "license": "MIT",
@@ -16,6 +19,7 @@
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
     "clean-webpack-plugin": "^0.1.15",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
@@ -23,11 +27,14 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "open-browser-webpack-plugin": "0.0.3",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
+    "react-transition-group": "^1.1.3"
   }
 }

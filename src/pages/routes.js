@@ -40,4 +40,4 @@ const routes = {
   ]
 };
 
-export default () => <Router history={browserHistory} routes={routes} />;
+export default () => (<Router history={browserHistory} routes={routes} />);

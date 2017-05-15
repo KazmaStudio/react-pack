@@ -1,17 +1,30 @@
-import React from 'react';
-import Header from 'components/Header';
-import List from 'components/List/List';
+import React, { Component }  from 'react';
+import { browserHistory } from 'react-router';
 
-const twoColListItems = [
-  { title: 'first1' },
-  { title: 'Two1å' },
-  { title: 'Three' },
-  { title: 'Four' }
+const items = [
+  { title: 'blog' },
+  { title: 'about' }
 ];
 
-export default () => (
-  <article className="home">
-    <Header title="Home"/>
-    <List columns={2} items={twoColListItems} />
-  </article>
-);
+class Home extends Component {
+
+  push(path, event) {
+    browserHistory.isPop = false;
+    browserHistory.push('/'+path);
+  }
+
+  render() {
+    return (
+      <div className='page'>
+        <h1>HOME</h1>
+        {items.map((item) => {
+          return (
+            <button onClick={this.push.bind(this, item.title)}>{item.title}</button>
+          )
+        })}
+      </div>
+    );
+  }
+}
+
+export default Home;

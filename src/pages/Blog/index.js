@@ -10,9 +10,7 @@ class Blog extends Component {
 
   pop() {
       hashHistory.isPop = true;
-      console.log(hashHistory.goBack);
       hashHistory.goBack();
-      //window.history.go(-1);
   }
 
   render() {

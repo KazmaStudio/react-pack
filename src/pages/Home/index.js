@@ -2,16 +2,13 @@ import React, { Component }  from 'react';
 import { hashHistory } from 'react-router';
 
 const items = [
-    { title: 'blog1' },
+    { title: 'blog' },
     { title: 'about' }
 ];
 
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: 'HOME'
-        }
     }
 
     push(path, event) {
@@ -22,7 +19,7 @@ class Home extends Component {
     render() {
         return (
             <div className='page'>
-            <h1>{this.state.title}</h1>
+            <h1>HOME</h1>
             {items.map((item) => {
                 return (
                     <button onClick={this.push.bind(this, item.title)}>{item.title}</button>

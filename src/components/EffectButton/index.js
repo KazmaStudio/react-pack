@@ -72,27 +72,30 @@ class EffectButton extends Component {
     constructor(props) {
         super(props);
         this.props = {
-            isMove: 9
+            isMove: -1
         }
     }
 
     touchStart = (event) => {
+        event.stopPropagation(); event.preventDefault();
         let bgColor = window.getComputedStyle(this.refs.EffectButton).backgroundColor;
         event.target.style.backgroundColor = darkColor(bgColor, 50);
         this.props.isMove = 0;
     }
 
     touchMove = (event) => {
+        event.stopPropagation(); event.preventDefault();
         this.props.isMove = 1;
     }
 
     touchEnd = (event) => {
+        event.stopPropagation(); event.preventDefault();
         let bgColor = window.getComputedStyle(this.refs.EffectButton).backgroundColor;
         event.target.style.backgroundColor = lightColor(bgColor, 50);
         if (this.props.isMove === 0){
             this.props.action();
         }
-        this.props.isMove = 9;
+        this.props.isMove = -1;
     }
 
     render() {
@@ -101,7 +104,6 @@ class EffectButton extends Component {
             ref = 'EffectButton'
             style = {this.props.style}
             className = {'EffectButton ' + this.props.className}
-            onClick = {this.props.onClick}
             onTouchStart = {this.touchStart.bind(event)}
             onTouchMove = {this.touchMove.bind(event)}
             onTouchEnd = {this.touchEnd.bind(event)}>

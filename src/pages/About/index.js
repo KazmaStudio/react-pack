@@ -40,10 +40,11 @@ class About extends Component {
         return (
             <div className = 'page About'>
             <h1>{this.state.title}</h1>
-            <PrimaryButton action = {this.push.bind(event, 'blog')} text = 'Blog' path = 'blog' className = 'About-go-blog-button'></PrimaryButton>
+            <PrimaryButton action = {this.push.bind(event, 'blog')} text = 'Blog' className = 'About-go-blog-button'></PrimaryButton>
             <br/>
-            <button onClick = {this.pop.bind()}>Back</button>
-            <button onClick = {this.run.bind()}>run iOS method</button>
+            <PrimaryButton action = {this.pop.bind()} text = '返回' className = 'About-back-button'></PrimaryButton>
+            <br/>
+            <PrimaryButton action = {this.run.bind()} text = '调用iOS方法' className = 'About-run-button'></PrimaryButton>
             </div>
         );
     }

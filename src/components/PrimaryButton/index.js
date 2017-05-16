@@ -8,8 +8,9 @@ class PrimaryButton extends Component {
       <EffectButton
         style = {this.props.style}
         text = {this.props.text}
+        path = {this.props.path}
         className = {'PrimaryButton' + ((this.props.className == undefined) ? ' ' : (' ' + this.props.className))}
-        onClick = {this.props.onClick}></EffectButton>
+        action = {this.props.action}></EffectButton>
     );
   }
 

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Router, hashHistory } from 'react-router/';
 import App from 'containers/App';
@@ -41,3 +42,21 @@ const routes = {
 };
 
 export default () => (<Router history={hashHistory} routes={routes} />);
+
+
+/*
+import React from 'react';
+import { Router, hashHistory, Route } from 'react-router';
+import App from 'containers/App';
+import Home from 'pages/Home';
+import Blog from 'pages/Blog';
+import About from 'pages/About';
+const routes = (
+  <Route component={App}>
+      <Route path="/" component={Home}/>
+      <Route path="blog" component={Blog}/>
+      <Route path="about" component={About}/>
+  </Route>
+);
+export default () => (<Router history={hashHistory} routes={routes} />);
+*/

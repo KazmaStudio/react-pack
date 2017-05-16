@@ -5,38 +5,48 @@ import './index.less';
 
 class About extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
-  push(path, event) {
-    hashHistory.isPop = false;
-    hashHistory.push('/'+path);
-  }
-
-  pop() {
-    hashHistory.isPop = true;
-    hashHistory.goBack();
-  }
-
-  run() {
-    let message ={
-      func: 1
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: 'About'
+        };
     }
-    window.webkit.messageHandlers.webViewApp.postMessage(message);
-  }
 
-  render() {
-    return (
-      <div className='page About'>
-        <h1>ABOUT</h1>
-        <PrimaryButton onClick={this.push.bind(this, 'blog')} text='Blog' className='test'></PrimaryButton>
-        <br/>
-        <button onClick={this.pop.bind()}>Back</button>
-        <button onClick={this.run.bind()}>run iOS</button>
-      </div>
-    );
-  }
+    push = (path, event) => {
+        hashHistory.isPop = false;
+        hashHistory.push('/'+path);
+    }
+
+    pop() {
+        hashHistory.isPop = true;
+        hashHistory.goBack();
+    }
+
+    run = () =>{
+        requestNetwork({
+            data: {
+                key: 'value'
+            },
+            callback: (res) => {
+                console.dir(res);
+                this.setState({
+                    title: res.title
+                });
+            }
+        });
+    }
+
+    render() {
+        return (
+            <div className = 'page About'>
+            <h1>{this.state.title}</h1>
+            <PrimaryButton action = {this.push.bind(event, 'blog')} text = 'Blog' path = 'blog' className = 'About-go-blog-button'></PrimaryButton>
+            <br/>
+            <button onClick = {this.pop.bind()}>Back</button>
+            <button onClick = {this.run.bind()}>run iOS method</button>
+            </div>
+        );
+    }
 }
 
 export default About;

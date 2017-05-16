@@ -11,7 +11,8 @@ class Home extends Component {
         super(props);
     }
 
-    push(path, event) {
+    push = (path, event) => {
+        console.log(1);
         hashHistory.isPop = false;
         hashHistory.push('/'+path);
     }
@@ -22,7 +23,7 @@ class Home extends Component {
             <h1>HOME</h1>
             {items.map((item) => {
                 return (
-                    <button onClick={this.push.bind(this, item.title)}>{item.title}</button>
+                    <button onClick={this.push.bind(event, item.title)}>{item.title}</button>
                 )
             })}
             </div>

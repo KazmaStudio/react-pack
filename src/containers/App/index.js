@@ -6,18 +6,18 @@ import { hashHistory } from 'react-router'
 let pageTransitionName = 'pageSwap';
 
 hashHistory.listen(function(ev) {
-  if(hashHistory.isPop){
-    pageTransitionName = 'reversePageSwap'
-  }else{
-    pageTransitionName = 'pageSwap';
-  }
+    if(hashHistory.isPop){
+        pageTransitionName = 'reversePageSwap'
+    }else{
+        pageTransitionName = 'pageSwap';
+    }
 });
 const App = (props) => (
-  <main className='viewport'>
+    <main className='viewport'>
     <CSSTransitionGroup component='div' transitionName={pageTransitionName}>
-       {React.cloneElement(props.children, { key: props.location.pathname, style: {top: window.pageYOffset} })}
+    {React.cloneElement(props.children, { key: props.location.pathname, style: {top: window.pageYOffset} })}
     </CSSTransitionGroup>
-  </main>
+    </main>
 );
 
 export default App;
